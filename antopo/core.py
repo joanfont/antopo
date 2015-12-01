@@ -28,10 +28,7 @@ class StringsXML(BaseStrings):
         return map(build_message_fnx, strings)
 
     def translate(self):
-        def _translate_item(item):
-            return tostring(item.to_translated_xml())
-
-        return map(_translate_item, self.messages)
+        return map(lambda x: x.to_translated_xml(), self.messages)
 
     def get_target_filename(self):
         return '{target_prefix}{target_language}.po'.format(target_pefix=self.target_prefix, target=languageself.target_language)
