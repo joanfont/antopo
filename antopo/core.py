@@ -67,10 +67,9 @@ class StringsPO(BaseStrings):
         source_filename = self.get_source_filename()
         messages = self.message_library.messages
         root = ElementTree.Element('resources')
-        with open(source_filename, 'w+') as f:
-            for message in messages:
-                xml_node = message.to_original_xml()
-                root.append(xml_node)
+        for message in messages:
+            xml_node = message.to_original_xml()
+            root.append(xml_node)
 
         self._write_xml_to_file(source_filename, root)
 
