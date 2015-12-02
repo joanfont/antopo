@@ -13,10 +13,17 @@ class Message(BaseEntity):
         self.translation = translation
 
     @classmethod
-    def from_node(cls, language, node):
+    def from_xml_node(cls, language, node):
         context = node.get('name')
         original = node.text
         return cls(language, context=context, original=original)
+
+    @classmethod
+    def from_po_node(cls, language, node):
+        context = node.msgctxt
+        original = node.msgid
+        translation = node.msgstr
+        return cls(language, context=context, original=original, translation=translation)
 
     def to_original_xml(self):
         return self._to_xml(self.original)
@@ -42,3 +49,9 @@ class Message(BaseEntity):
 
     def __repr__(self):
         return '{}: {}'.format(self.context, self.original)
+
+
+class MessageLibrary(BaseEntity):
+
+    def __init__(self, messages):
+        self.messages = messages
