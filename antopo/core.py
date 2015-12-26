@@ -43,7 +43,7 @@ class StringsXML(BaseStrings):
         with open(target_filename, 'w+') as f:
             for message in messages:
                 po_message = message.to_po()
-                po_block = '{}\n\n'.format(po_message)
+                po_block = '{po_message}\n\n'.format(po_message=po_message)
                 f.write(po_block)
 
     def update_from_po(self):

@@ -7,8 +7,8 @@ __pycache__
 *.xml
 
 main.py
-!tests/fixtures/*.xml
-!tests/fixtures/*.po
+tests/fixtures/*.xml
+tests/fixtures/*.po
 
 tests/.cache
 tests/tests
