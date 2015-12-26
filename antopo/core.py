@@ -34,8 +34,8 @@ class StringsXML(BaseStrings):
         return MessageLibrary(messages)
 
     def get_target_filename(self):
-        return '{target_prefix}{target_language}.po'.format(target_pefix=self.file_prefix,
-                                                            target=self.target_language)
+        return '{target_prefix}{target_language}.po'.format(target_prefix=self.file_prefix,
+                                                            target_language=self.target_language)
 
     def build_translation_po(self):
         target_filename = self.get_target_filename()
@@ -45,6 +45,9 @@ class StringsXML(BaseStrings):
                 po_message = message.to_po()
                 po_block = '{}\n\n'.format(po_message)
                 f.write(po_block)
+
+    def update_from_po(self):
+        pass
 
 
 class StringsPO(BaseStrings):
