@@ -12,3 +12,4 @@ main.py
 
 tests/.cache
 tests/tests
+.cache
